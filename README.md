@@ -13,18 +13,18 @@ For the ETL-Query lab:
 
 ### Preparation:
 * This project was forked from nogibjj/sqlite-lab
-* The project incorporates an automated workflow managed through a Makefile, which efficiently handles various tasks. These tasks encompass installation (via "make install"), testing (via "make test"), code formatting (via "make format"), and code quality checks (via "make lint")
-<img width="881" alt="Screen Shot 2023-10-04 at 12 03 52" src="https://github.com/nogibjj/IDS706_miniproject5_xk10/assets/143849077/1ebb6e7d-d801-4b8a-8663-817a77233eeb">
-<img width="589" alt="Screen Shot 2023-10-04 at 12 04 54" src="https://github.com/nogibjj/IDS706_miniproject5_xk10/assets/143849077/4135b5a1-2e14-4915-861e-783fe9a58763">
 * The data file fifa_countries_audience.csv includes the following variables:
   * country: IFA member country
   * confederation: Confederation to which country belongs
   * population_share: Country's share of global population (percentage)
   * tv_audience_share: Country's share of global world cup TV Audience (percentage)
   * gdp_weighted_share: Country's GDP-weighted audience share (percentage)
+* The project incorporates an automated workflow managed through a Makefile, which efficiently handles various tasks. These tasks encompass installation (via "make install"), testing (via "make test"), code formatting (via "make format"), and code quality checks (via "make lint")
+<img width="881" alt="Screen Shot 2023-10-04 at 12 03 52" src="https://github.com/nogibjj/IDS706_miniproject5_xk10/assets/143849077/1ebb6e7d-d801-4b8a-8663-817a77233eeb">
+<img width="589" alt="Screen Shot 2023-10-04 at 12 04 54" src="https://github.com/nogibjj/IDS706_miniproject5_xk10/assets/143849077/4135b5a1-2e14-4915-861e-783fe9a58763">
 
 ### This repo contains:
-* external data (fifa data)
+* external data (fifa dataset from github)
 * `mylib`:
     * `extract.py`：contains functions that manage the data extraction process from the external datasource
     * `query.py`：facilitate the execution of SQL queries(supports custom SQL queries), offering CRUD operations (Create, Read, Update, Delete) to interact with the database
