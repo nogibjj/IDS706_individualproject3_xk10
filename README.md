@@ -1,6 +1,7 @@
-[![CI/CD Workflow](https://github.com/nogibjj/IDS706_miniproject55_xk10/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS706_miniproject5_xk10/actions/workflows/cicd.yml)
+[![CI/CD Workflow](https://github.com/nogibjj/IDS706_miniproject5_xk10/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS706_miniproject5_xk10/actions/workflows/cicd.yml)
 ## Python Script interacting with SQL Database⚽️📊
 ![4 17-etl-sqlite-RAW](https://github.com/nogibjj/sqlite-lab/assets/58792/b39b21b4-ccb4-4cc4-b262-7db34492c16d)
+
 ### Purpose:
 * This repository offers a python-based solution for automating the extraction, transfomation and loading (ETL) process of the fifa countries and audience dataset (https://github.com/fivethirtyeight/data/blob/master/fifa/fifa_countries_audience.csv). The pipeline begins by extracting data from a CSV file and then structures and inserts it into a local SQLite3 database.
 * ETL-Query:  [E] Extract a dataset from URL, [T] Transform, [L] Load into SQLite Database and [Q] Query
