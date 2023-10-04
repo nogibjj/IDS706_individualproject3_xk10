@@ -34,17 +34,17 @@ def handle_arguments(args):
     if args.action == "update_record":
         parser.add_argument("record_id")
         parser.add_argument("country")
-        parser.add_argument("beer_sevrings")
-        parser.add_argument("spirit_servings")
-        parser.add_argument("wine_servings")
-        parser.add_argument("total_pure_alcohol")
+        parser.add_argument("confederation")
+        parser.add_argument("population_share")
+        parser.add_argument("tv_audience_share")
+        parser.add_argument("gdp_weighted_share")
 
     if args.action == "create_record":
         parser.add_argument("country")
-        parser.add_argument("beer_sevrings")
-        parser.add_argument("spirit_servings")
-        parser.add_argument("wine_servings")
-        parser.add_argument("total_pure_alcohol")
+        parser.add_argument("confederation")
+        parser.add_argument("population_share")
+        parser.add_argument("tv_audience_share")
+        parser.add_argument("gdp_weighted_share")
 
     if args.action == "delete_record":
         parser.add_argument("record_id", type=int)
@@ -68,10 +68,10 @@ def main():
         update_record(
             args.record_id,
             args.country,
-            args.beer_sevrings,
-            args.spirit_servings,
-            args.wine_servings,
-            args.total_pure_alcohol,
+            args.confederation,
+            args.population_share,
+            args.tv_audience_share,
+            args.gdp_weighted_share,
         )
 
     elif args.action == "delete_record":
@@ -80,10 +80,10 @@ def main():
     elif args.action == "create_record":
         create_record(
             args.country,
-            args.beer_sevrings,
-            args.spirit_servings,
-            args.wine_servings,
-            args.total_pure_alcohol,
+            args.confederation,
+            args.population_share,
+            args.tv_audience_share,
+            args.gdp_weighted_share,
         )
 
     elif args.action == "read_data":

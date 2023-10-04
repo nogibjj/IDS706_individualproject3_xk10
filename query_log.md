@@ -1,30 +1,274 @@
 ```sql
-UPDATE alcoholDB SET 
+UPDATE fifaDB SET 
         country=country_A, 
-        beer_sevringst=
-        10,
-        spirit_servings=10, 
-        wine_servings=10, 
-        total_pure_alcohol=10,
+        confederation=
+        AAAAA,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
         WHERE id=3;
 ```
 
 ```sql
-DELETE FROM alcoholDB WHERE id=1;
+DELETE FROM fifaDB WHERE id=1;
 ```
 
 ```sql
-UPDATE alcoholDB SET 
+UPDATE fifaDB SET 
+        country=country_B, 
+        confederation=
+        BBBBB,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=4;
+```
+
+```sql
+SELECT * FROM fifaDB;
+```
+
+```sql
+UPDATE fifaDB SET 
         country=country_A, 
-        beer_sevringst=
-        1,
-        spirit_servings=1, 
-        wine_servings=1, 
-        total_pure_alcohol=1.1,
-        WHERE id=1000;
+        confederation=
+        AAAAA,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=3;
 ```
 
 ```sql
-SELECT * FROM alcoholDB;
+DELETE FROM fifaDB WHERE id=1;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_B, 
+        confederation=
+        BBBBB,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=4;
+```
+
+```sql
+SELECT * FROM fifaDB;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_A, 
+        confederation=
+        AAAAA,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=3;
+```
+
+```sql
+DELETE FROM fifaDB WHERE id=1;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_B, 
+        confederation=
+        BBBBB,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=4;
+```
+
+```sql
+SELECT * FROM fifaDB;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_A, 
+        confederation=
+        AAAAA,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=3;
+```
+
+```sql
+DELETE FROM fifaDB WHERE id=1;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_B, 
+        confederation=
+        BBBBB,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=4;
+```
+
+```sql
+SELECT * FROM fifaDB;
+```
+
+```sql
+SELECT * FROM fifaDB;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_A, 
+        confederation=
+        AAAAA,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=3;
+```
+
+```sql
+DELETE FROM fifaDB WHERE id=1;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_B, 
+        confederation=
+        BBBBB,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=4;
+```
+
+```sql
+SELECT * FROM fifaDB;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_A, 
+        confederation=
+        AAAAA,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=3;
+```
+
+```sql
+DELETE FROM fifaDB WHERE id=1;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_B, 
+        confederation=
+        BBBBB,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=4;
+```
+
+```sql
+SELECT * FROM fifaDB;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_A, 
+        confederation=
+        AAAAA,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=3;
+```
+
+```sql
+DELETE FROM fifaDB WHERE id=1;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_B, 
+        confederation=
+        BBBBB,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=4;
+```
+
+```sql
+SELECT * FROM fifaDB;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_A, 
+        confederation=
+        AAAAA,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=3;
+```
+
+```sql
+DELETE FROM fifaDB WHERE id=1;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_B, 
+        confederation=
+        BBBBB,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=4;
+```
+
+```sql
+SELECT * FROM fifaDB;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_A, 
+        confederation=
+        AAAAA,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=3;
+```
+
+```sql
+DELETE FROM fifaDB WHERE id=1;
+```
+
+```sql
+UPDATE fifaDB SET 
+        country=country_B, 
+        confederation=
+        BBBBB,
+        population_share=5.0, 
+        tv_audience_share=5.0, 
+        gdp_weighted_share=5.0,
+        WHERE id=4;
+```
+
+```sql
+SELECT * FROM fifaDB;
 ```
 
