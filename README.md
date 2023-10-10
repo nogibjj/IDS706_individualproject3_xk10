@@ -3,7 +3,7 @@
 ![4 17-etl-sqlite-RAW](https://github.com/nogibjj/sqlite-lab/assets/58792/b39b21b4-ccb4-4cc4-b262-7db34492c16d)
 
 ### Purpose:
-* This repository offers a python-based solution for automating the extraction, transfomation and loading (ETL) process of the fifa countries and audience dataset (https://github.com/fivethirtyeight/data/blob/master/fifa/fifa_countries_audience.csv). The pipeline begins by extracting data from a CSV file and then structures and inserts it into a local SQLite3 database.
+* This repository offers a pythons-based solution for automating the extraction, transfomation and loading (ETL) process of the fifa countries and audience dataset (https://github.com/fivethirtyeight/data/blob/master/fifa/fifa_countries_audience.csv). The pipeline begins by extracting data from a CSV file and then structures and inserts it into a local SQLite3 database.
 * ETL-Query:  [E] Extract a dataset from URL, [T] Transform, [L] Load into SQLite Database and [Q] Query
 For the ETL-Query lab:
   * [E] Extract a dataset from a URL like Kaggle or data.gov. JSON or CSV formats tend to work well.
