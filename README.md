@@ -16,7 +16,7 @@ For the ETL-Query lab:
 * The data file fifa_countries_audience.csv includes the following variables:
   * country: IFA member country
   * confederation: Confederation to which country belongs
-  * population_share: Country's share of global population (percentage)
+  * population_share: Country's share of global population (percentage)ss
   * tv_audience_share: Country's share of global world cup TV Audience (percentage)
   * gdp_weighted_share: Country's GDP-weighted audience share (percentage)
 * The project incorporates an automated workflow managed through a Makefile, which efficiently handles various tasks. These tasks encompass installation (via "make install"), testing (via "make test"), code formatting (via "make format"), and code quality checks (via "make lint")
