@@ -1,58 +1,70 @@
 """
-Transforms and Loads data into the local SQLite3 database
+Transforms and Loads data into Azure Databricks
 """
-import sqlite3
-import csv
+import os
+from databricks import sql
+import pandas as pd
+from dotenv import load_dotenv
 
-def load(dataset="data/fifa.csv"):
-    """Transforms and Loads data into the local SQLite3 database"""
 
-    # Load CSV data into a list of tuples
-    with open(dataset, newline='') as file:
-        reader = csv.reader(file, delimiter=',')
-        next(reader)  # skip header
-        data_list = [tuple(row) for row in reader]
-    
-    # Debugging: Print the first few rows to inspect data
-    for row in data_list[:5]:
-        print(row)
-        if len(row) != 5:
-            print(f"Row does not have 5 columns: {row}")
+# load the csv file and insert into databricks
+def load(dataset="data/serve_times.csv", dataset2="data/event_times.csv"):
+    """Transforms and Loads data into the local databricks database"""
+    df = pd.read_csv(dataset, delimiter=",", skiprows=1)
+    df2 = pd.read_csv(dataset2, delimiter=",", skiprows=1)
+    load_dotenv()
+    server_h = os.getenv("SERVER_HOSTNAME")
+    access_token = os.getenv("ACCESS_TOKEN")
+    http_path = os.getenv("HTTP_PATH")
+    with sql.connect(
+        server_hostname=server_h,
+        http_path=http_path,
+        access_token=access_token,
+    ) as connection:
+        c = connection.cursor()
+        # INSERT TAKES TOO LONG
+        # c.execute("DROP TABLE IF EXISTS ServeTimesDB")
+        c.execute("SHOW TABLES FROM default LIKE 'serve*'")
+        result = c.fetchall()
+        # takes too long so not dropping anymore
+        # c.execute("DROP TABLE IF EXISTS EventTimesDB")
+        if not result:
+            c.execute(
+                """
+                CREATE TABLE IF NOT EXISTS ServeTimesDB (
+                    id int,
+                    server string,
+                    seconds_before_next_point int,
+                    day string,
+                    opponent string,
+                    game_score string,
+                    sets int,
+                    game string
+                )
+            """
+            )
+            # insert
+            for _, row in df.iterrows():
+                convert = (_,) + tuple(row)
+                c.execute(f"INSERT INTO ServeTimesDB VALUES {convert}")
+        c.execute("SHOW TABLES FROM default LIKE 'event*'")
+        result = c.fetchall()
+        # c.execute("DROP TABLE IF EXISTS EventTimesDB")
+        if not result:
+            c.execute(
+                """
+                CREATE TABLE IF NOT EXISTS EventTimesDB (
+                    id int,
+                    tournament string,
+                    surface string,
+                    seconds_added_per_point string,
+                    years string
+                )
+                """
+            )
+            for _, row in df2.iterrows():
+                convert = (_,) + tuple(row)
+                c.execute(f"INSERT INTO EventTimesDB VALUES {convert}")
+        c.close()
 
-    conn = sqlite3.connect('fifaDB.db')
-    c = conn.cursor()
-
-    # (Re)Create the table
-    c.execute("DROP TABLE IF EXISTS fifaDB")
-    c.execute("""
-              CREATE TABLE fifaDB (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    country TEXT, 
-                    confederation TEXT,
-                    population_share REAL,
-                    tv_audience_share REAL,
-                    gdp_weighted_share REAL
-                  )
-              """)
-    
-    # Insert data
-    try:
-        c.executemany("""
-                      INSERT INTO fifaDB (
-                            country, 
-                            confederation,
-                            population_share ,
-                            tv_audience_share ,
-                            gdp_weighted_share
-                          ) 
-                          VALUES (?, ?, ?, ?, ?)
-                      """, data_list)
-    except Exception as e:
-        print(f"Error while inserting data: {e}")
-        conn.rollback()
-    else:
-        conn.commit()
-    finally:
-        conn.close()
-
-    return "fifaDB.db"
+    return "success"
