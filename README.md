@@ -1,9 +1,7 @@
-[![CI/CD Workflow](https://github.com/nogibjj/IDS706_miniproject5_xk10/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS706_miniproject5_xk10/actions/workflows/cicd.yml)
-## Python Script interacting with SQL Database⚽️📊
-![4 17-etl-sqlite-RAW](https://github.com/nogibjj/sqlite-lab/assets/58792/b39b21b4-ccb4-4cc4-b262-7db34492c16d)
+## Individual Project3: Databricks ETL (Extract Transform Load) Pipeline
 
 ### Purpose:
-* This repository offers a pythons-based solution for automating the extraction, transfomation and loading (ETL) process of the fifa countries and audience dataset (https://github.com/fivethirtyeight/data/blob/mas sster/fifa/fifa_countries_audience.csv). The pipeline begins by extracting data from a CSV file and then structures and inserts it into a local SQLite3 database.
+* This repository hosts a comprehensive ETL (Extract, Transform, Load) pipeline project, designed to showcase the integration and utilization of Databricks, Delta Lake, and Spark SQL for efficient and scalable data processing. The primary purpose is to provide a practical framework for extracting data from various sources, transforming it using advanced Spark SQL techniques, and loading it into Delta Lake for optimized storage and retrieval. It serves as an educational and operational resource for data professionals and organizations seeking to enhance their data infrastructure and analytics capabilities.
 * ETL-Query:  [E] Extract a dataset from URL, [T] Transform, [L] Load into SQLite Database and [Q] Query
 For the ETL-Query lab:
   * [E] Extract a dataset from a URL like Kaggle or data.gov. JSON or CSV formats tend to work well.
@@ -11,26 +9,36 @@ For the ETL-Query lab:
   * [L] Load the transformed data into a SQLite database table using Python's sqlite3 module.
   * [Q] Write and execute SQL queries on the SQLite database to analyze and retrieve insights from the data.
 
-### Preparation:
-* This project was forked from nogibjj/sqlite-lab
-* The data file fifa_countries_audience.csv includes the following variables:
-  * country: IFA member country
-  * confederation: Confederation to which country belongs
-  * population_share: Country's share of global population (percentage)ss
-  * tv_audience_share: Country's share of global world cup TV Audience (percentage)
-  * gdp_weighted_share: Country's GDP-weighted audience share (percentage)
-* The project incorporates an automated workflow managed through a Makefile, which efficiently handles various tasks. These tasks encompass installation (via "make install"), testing (via "make test"), code formatting (via "make format"), and code quality checks (via "make lint")
-<img width="881" alt="Screen Shot 2023-10-04 at 12 03 52" src="https://github.com/nogibjj/IDS706_miniproject5_xk10/assets/143849077/1ebb6e7d-d801-4b8a-8663-817a77233eeb">
-<img width="589" alt="Screen Shot 2023-10-04 at 12 04 54" src="https://github.com/nogibjj/IDS706_miniproject5_xk10/assets/143849077/4135b5a1-2e14-4915-861e-783fe9a58763">
+### Setup Instructions:
+1. Create a Databricks Cluster:
+* Log into Databricks workspace, clone the repository with the github url to Databricks
+* Navigate to `Compute` and create a new cluster, selecting the appropriate configuration for your needs.
+2. Link GitHub Account:
+* In the Databricks workspace, go to `User Settings`.
+* Link your GitHub account for repository access.
+* Create secrets in Github to store the SERVER_HOSTNAME,ACCESS_TOKEN, JOB_ID
+3. Set Global Init Scripts:
+* Go to `Admin Console` in Databricks.
+* In the 'Global Init Scripts' section, add two environment variables: SERVER_HOSTNAME and ACCESS_TOKEN.
+4. Configure Job Runs:
+* Create a new job in Databricks.
+* Add three tasks corresponding to the ETL stages.
+* Ensure dependencies are included from `requirements.txt`.
+* Run the pipeline to test whether it works
+![WechatIMG2625](https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/1689c783-ad4c-4b5e-8216-a0ac47401928)
+5. Data Preparation and Table Creation:
+* Upload two datasets to Databricks File System (DBFS).
+* click `create table with UI`
+<img width="953" alt="Screen Shot 2023-11-16 at 01 31 22" src="https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/0f5d930b-24d2-4414-9a27-f7eae3b43a13">
+6. Testing the Setup:
+* Run `make install` in workspace to install necessary dependencies from requirements.txt.
+* Run make test in workspace to execute the test suite and validate the setup.
 
-### This repo contains:
-* external data (fifa dataset from github)
-* `mylib`:
-    * `extract.py`：contains functions that manage the data extraction process from the external datasource
-    * `query.py`：facilitate the execution of SQL queries(supports custom SQL queries), offering CRUD operations (Create, Read, Update, Delete) to interact with the database
-    * `transform_load.py`：handles the transformation of the extracted data to fit our desired schema, and then loads this transformed data into the SQLite3 database
-* `main.py`: the primary script driving the project. It utilizes argparse to interpret user commands and facilitates the full ETL process, as well as further database interactions, by calling the relevant functions from the mylib directory.
-* `test_main.py`: Contains unit tests for the functionalities offered in main.py. It ensures that the extraction, transformation, loading, and other database operations work as expected.
+### Query Visualization:
+<img width="901" alt="qv1 (2)" src="https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/3d6fc092-7fae-4bc1-bf8e-2fbd54445934">
+
+
+
 
 
 
