@@ -13,20 +13,23 @@ For the ETL-Query lab:
 1. Create a Databricks Cluster:
 * Log into Databricks workspace, clone the repository with the github url to Databricks
 * Navigate to `Compute` and create a new cluster, selecting the appropriate configuration for your needs.
+
 2. Link GitHub Account:
 * In the Databricks workspace, go to `User Settings`.
 * Link your GitHub account for repository access with personal access token generated from Github
 * Create secrets in Github to store the SERVER_HOSTNAME,ACCESS_TOKEN, JOB_ID
 <img width="764" alt="Screen Shot 2023-11-16 at 01 52 49" src="https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/91b35d0b-fbc5-4b46-9d4c-56717a639bbb">
+
 3. Set Global Init Scripts:
 * Go to `Admin Console` in Databricks.
 * In the 'Global Init Scripts' section, add two environment variables: SERVER_HOSTNAME and ACCESS_TOKEN.
+
 4. Configure Job Runs:
 * Create a new job in Databricks.
 * Add three tasks corresponding to the ETL stages.
 * Ensure dependencies are included from `requirements.txt`.
 * Run the pipeline to test whether it works
-![WechatIMG2625](https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/1689c783-ad4c-4b5e-8216-a0ac47401928)
+
 5. Data Preparation and Table Creation:
 * Upload two datasets to Databricks File System (DBFS).
 * click `create table with UI`
@@ -34,6 +37,7 @@ For the ETL-Query lab:
 6. Testing the Setup:
 * Run `make install` in workspace to install necessary dependencies from requirements.txt.
 * Run `make test` in workspace to execute the test suite and validate the setup.
+![job](https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/4a2b548e-f742-4074-b0d7-947fc38a5c7c)
 
 ### Query Visualization:
 <img width="901" alt="qv1 (2)" src="https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/3d6fc092-7fae-4bc1-bf8e-2fbd54445934">
