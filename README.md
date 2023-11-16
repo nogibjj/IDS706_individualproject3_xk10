@@ -15,8 +15,9 @@ For the ETL-Query lab:
 * Navigate to `Compute` and create a new cluster, selecting the appropriate configuration for your needs.
 2. Link GitHub Account:
 * In the Databricks workspace, go to `User Settings`.
-* Link your GitHub account for repository access.
+* Link your GitHub account for repository access with personal access token generated from Github
 * Create secrets in Github to store the SERVER_HOSTNAME,ACCESS_TOKEN, JOB_ID
+<img width="764" alt="Screen Shot 2023-11-16 at 01 52 49" src="https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/91b35d0b-fbc5-4b46-9d4c-56717a639bbb">
 3. Set Global Init Scripts:
 * Go to `Admin Console` in Databricks.
 * In the 'Global Init Scripts' section, add two environment variables: SERVER_HOSTNAME and ACCESS_TOKEN.
@@ -32,11 +33,16 @@ For the ETL-Query lab:
 <img width="953" alt="Screen Shot 2023-11-16 at 01 31 22" src="https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/0f5d930b-24d2-4414-9a27-f7eae3b43a13">
 6. Testing the Setup:
 * Run `make install` in workspace to install necessary dependencies from requirements.txt.
-* Run make test in workspace to execute the test suite and validate the setup.
+* Run `make test` in workspace to execute the test suite and validate the setup.
 
 ### Query Visualization:
 <img width="901" alt="qv1 (2)" src="https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/3d6fc092-7fae-4bc1-bf8e-2fbd54445934">
 
+### Recommendations to management team:
+1. Leverage Insights: Use the processed data for informed decision-making, identifying key areas for growth and improvement.
+2. Expand Data Capabilities: Plan for scaling the data infrastructure as needs grow, ensuring sustainability and performance.
+Iterative Development: Continuously refine and update the ETL process to stay aligned with evolving data and business requirements.
+3. Skill Development: Invest in training staff on Databricks, Delta Lake, and Spark SQL to build internal expertise and foster innovation.
 
 
 
