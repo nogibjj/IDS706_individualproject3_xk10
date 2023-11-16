@@ -1,35 +1,86 @@
-"""
-Extract a dataset from a URL like Kaggle or data.gov. 
-JSON or CSV formats tend to work well
-"""
-import os
 import requests
-import pandas as pd
+from dotenv import load_dotenv
+import os
+import json
+import base64
+
+# Load environment variables
+load_dotenv()
+server_h = os.getenv("SERVER_HOSTNAME")
+access_token = os.getenv("ACCESS_TOKEN")
+FILESTORE_PATH = "dbfs:/FileStore/tables/individual_project3"
+headers = {'Authorization': 'Bearer %s' % access_token}
+url = "https://"+server_h+"/api/2.0"
+
+
+def perform_query(path, headers, data={}):
+    session = requests.Session()
+    resp = session.request('POST', url + path, 
+                           data=json.dumps(data), 
+                           verify=True, 
+                           headers=headers)
+    return resp.json()
+
+
+def mkdirs(path, headers):
+    _data = {}
+    _data['path'] = path
+    return perform_query('/dbfs/mkdirs', headers=headers, data=_data)
+  
+
+def create(path, overwrite, headers):
+    _data = {}
+    _data['path'] = path
+    _data['overwrite'] = overwrite
+    return perform_query('/dbfs/create', headers=headers, data=_data)
+
+
+def add_block(handle, data, headers):
+    _data = {}
+    _data['handle'] = handle
+    _data['data'] = data
+    return perform_query('/dbfs/add-block', headers=headers, data=_data)
+
+
+def close(handle, headers):
+    _data = {}
+    _data['handle'] = handle
+    return perform_query('/dbfs/close', headers=headers, data=_data)
+
+
+def put_file_from_url(url, dbfs_path, overwrite, headers):
+    response = requests.get(url)
+    if response.status_code == 200:
+        content = response.content
+        handle = create(dbfs_path, overwrite, headers=headers)['handle']
+        print("Putting file: " + dbfs_path)
+        for i in range(0, len(content), 2**20):
+            add_block(handle, 
+                      base64.standard_b64encode(content[i:i+2**20]).decode(), 
+                      headers=headers)
+        close(handle, headers=headers)
+        print(f"File {dbfs_path} uploaded successfully.")
+    else:
+        print(f"Error downloading file from {url}. Status code: {response.status_code}")
 
 
 def extract(
-    url="""
-    https://github.com/fivethirtyeight/data/blob/master/tennis-time/serve_times.csv?raw=true 
-    """,
-    url2="""
-    https://github.com/fivethirtyeight/data/blob/master/tennis-time/events_time.csv?raw=true
-    """,
-    file_path="data/serve_times.csv",
-    file_path2="data/event_times.csv",
-    directory="data",
+        url="""https://github.com/fivethirtyeight/data/blob/15f210532b2a642e85738ddefa7a2945d47e2585/world-cup-predictions/wc-20140609-140000.csv?raw=True""",
+        url2="""https://github.com/fivethirtyeight/data/blob/15f210532b2a642e85738ddefa7a2945d47e2585/world-cup-predictions/wc-20140613-205820.csv?raw=True""",
+        file_path=FILESTORE_PATH+"/wc-20140609-140000.csv",
+        file_path2=FILESTORE_PATH+"/wc-20140613-205820.csv",
+        directory=FILESTORE_PATH,
+        overwrite=True
 ):
     """Extract a url to a file path"""
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-    with requests.get(url) as r:
-        with open(file_path, "wb") as f:
-            f.write(r.content)
-    with requests.get(url2) as r:
-        with open(file_path2, "wb") as f:
-            f.write(r.content)
-    df = pd.read_csv(file_path2)
+    # Make the directory, no need to check if it exists or not
+    mkdirs(path=directory, headers=headers)
+    # Add the csv files, no need to check if it exists or not
+    put_file_from_url(url, file_path, overwrite, headers=headers)
+    put_file_from_url(url2, file_path2, overwrite, headers=headers)
 
-    df_subset = df.head(121)
-
-    df_subset.to_csv(file_path2, index=False)
     return file_path, file_path2
+
+
+if __name__ == "__main__":
+    extract()
