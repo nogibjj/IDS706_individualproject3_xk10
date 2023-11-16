@@ -37,7 +37,8 @@ For the ETL-Query lab:
 6. Testing the Setup:
 * Run `make install` in workspace to install necessary dependencies from requirements.txt.
 * Run `make test` in workspace to execute the test suite and validate the setup.
-![job](https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/4a2b548e-f742-4074-b0d7-947fc38a5c7c)
+![job](https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/0590db61-c5c7-46a8-806d-fb30f7dbfd09)
+
 
 ### Query Visualization:
 <img width="901" alt="qv1 (2)" src="https://github.com/nogibjj/IDS706_individualproject3_xk10/assets/143849077/3d6fc092-7fae-4bc1-bf8e-2fbd54445934">
