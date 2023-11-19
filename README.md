@@ -1,12 +1,15 @@
 ## Individual Project3: Databricks ETL (Extract Transform Load) Pipeline
 
+### Demo video:
+https://youtu.be/iIL8A9Ckcw4
+
 ### Purpose:
 * This repository hosts a comprehensive ETL (Extract, Transform, Load) pipeline project, designed to showcase the integration and utilization of Databricks, Delta Lake, and Spark SQL for efficient and scalable data processing. The primary purpose is to provide a practical framework for extracting data from various sources, transforming it using advanced Spark SQL techniques, and loading it into Delta Lake for optimized storage and retrieval. It serves as an educational and operational resource for data professionals and organizations seeking to enhance their data infrastructure and analytics capabilities.
 * ETL-Query:  [E] Extract a dataset from URL, [T] Transform, [L] Load into SQLite Database and [Q] Query
 For the ETL-Query lab:
   * [E] Extract a dataset from a URL like Kaggle or data.gov. JSON or CSV formats tend to work well.
   * [T] Transform the data by cleaning, filtering, enriching, etc to get it ready for analysis.
-  * [L] Load the transformed data into a SQLite database table using Python's sqlite3 module.
+  * [L] Load the transformed data into a SQLite database table using Databricks.
   * [Q] Write and execute SQL queries on the SQLite database to analyze and retrieve insights from the data.
 
 ### Setup Instructions:
